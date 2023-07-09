@@ -212,9 +212,10 @@ N/A
 
 ## Unresolved questions
 
-- What parts of the design do you expect to resolve through the RFC process before this gets merged?
-- What parts of the design do you expect to resolve through the implementation of this feature before stabilization?
-- What related issues do you consider out of scope for this RFC that could be addressed in the future independently of the solution that comes out of this RFC?
+- how to handle repeated reservation? - is this more or less a business logic which shouldn't be put into this layer? (non-goal: we consider this a business logic and should be handled by the caller)
+- if load is big, we may use an extermal queue for recording changes.
+- we haven't considered tracking/observability/deployment yet.
+- query performance might be an issue - need to revisit the index and also consider using cache.
 
 ## Future possibilities
 
