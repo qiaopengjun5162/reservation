@@ -3,7 +3,7 @@
 -- reservation change queue
 CREATE TABLE rsvp.reservation_changes (
    id SERIAL NOT NULL,
-   resource_id uuid NOT NULL,
+   reservation_id uuid NOT NULL,
    op rsvp.reservation_update_type NOT NULL
 );
 
@@ -28,4 +28,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-CREATE TRIGGER reservations_trigger AFTER INSERT OR UPDATE OR DELETE ON rsvp.reservations FOR EACH ROW EXECUTE PROCEDURE rsvp.reservations_trigger();
+CREATE TRIGGER reservations_trigger
+    AFTER INSERT OR UPDATE OR DELETE ON rsvp.reservations
+    FOR EACH ROW EXECUTE PROCEDURE rsvp.reservations_trigger();
